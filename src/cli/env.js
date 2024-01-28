@@ -1,5 +1,7 @@
+const PREFIX = 'RSS_';
+
 const parseEnv = () => {
-    // Write your code here 
+  console.log(process.env.all);
 };
 
 parseEnv();

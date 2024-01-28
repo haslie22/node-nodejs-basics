@@ -2,7 +2,7 @@ import { dirname, join } from 'path';
 import { mkdir, readdir, copyFile } from 'fs/promises';
 import { fileURLToPath } from 'url';
 
-import doesFileExist from '../utils/doesFileExist.mjs';
+import doesPathExist from '../utils/doesPathExist.mjs';
 
 const FOLDER_NAME = 'files';
 const COPY_FOLDER_NAME = 'files_copy';
@@ -15,8 +15,8 @@ const copy = async () => {
   const folderPath = join(__dirname, FOLDER_NAME);
   const copyFolderPath = join(__dirname, COPY_FOLDER_NAME);
 
-  const doesFolderExist = await doesFileExist(folderPath);
-  const doesCopyFolderExist = await doesFileExist(copyFolderPath);
+  const doesFolderExist = await doesPathExist(folderPath);
+  const doesCopyFolderExist = await doesPathExist(copyFolderPath);
 
   if (!doesFolderExist || doesCopyFolderExist) {
     throw new Error(ERROR_MESSAGE);

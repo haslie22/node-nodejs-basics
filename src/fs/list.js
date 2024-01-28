@@ -2,7 +2,7 @@ import { dirname, join } from 'path';
 import { readdir } from 'fs/promises';
 import { fileURLToPath } from 'url';
 
-import doesFileExist from '../utils/doesFileExist.mjs';
+import doesPathExist from '../utils/doesPathExist.mjs';
 
 const FOLDER_NAME = 'files';
 const ERROR_MESSAGE = 'FS operation failed';
@@ -12,7 +12,7 @@ const __dirname = dirname(__filename);
 
 const list = async () => {
   const folderPath = join(__dirname, FOLDER_NAME);
-  const doesFolderExist = await doesFileExist(folderPath);
+  const doesFolderExist = await doesPathExist(folderPath);
 
   if (!doesFolderExist) {
     throw new Error(ERROR_MESSAGE);

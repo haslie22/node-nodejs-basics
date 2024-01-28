@@ -1,6 +1,6 @@
 import { access } from 'fs/promises';
 
-const doesFileExist = async (path) => {
+const doesPathExist = async (path) => {
   let fileExists = true;
 
   try {
@@ -15,4 +15,4 @@ const doesFileExist = async (path) => {
   return fileExists;
 };
 
-export default doesFileExist;
+export default doesPathExist;

@@ -2,7 +2,7 @@ import { dirname, join } from 'path';
 import { rm } from 'fs/promises';
 import { fileURLToPath } from 'url';
 
-import doesFileExist from '../utils/doesFileExist.mjs';
+import doesPathExist from '../utils/doesPathExist.mjs';
 
 const FOLDER_NAME = 'files';
 const FILE_NAME = 'fileToRemove.txt';
@@ -13,7 +13,7 @@ const __dirname = dirname(__filename);
 
 const remove = async () => {
   const filePath = join(__dirname, FOLDER_NAME, FILE_NAME);
-  const isFilePresent = await doesFileExist(filePath);
+  const isFilePresent = await doesPathExist(filePath);
 
   if (!isFilePresent) {
     throw new Error(ERROR_MESSAGE);

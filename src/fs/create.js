@@ -2,7 +2,7 @@ import { dirname, join } from 'path';
 import { writeFile } from 'fs/promises';
 import { fileURLToPath } from 'url';
 
-import doesFileExist from '../utils/doesFileExist.mjs';
+import doesPathExist from '../utils/doesPathExist.mjs';
 
 const FOLDER_NAME = 'files';
 const FILE_NAME = 'fresh.txt';
@@ -14,7 +14,7 @@ const __dirname = dirname(__filename);
 
 const create = async () => {
   const newFilePath = join(__dirname, FOLDER_NAME, FILE_NAME);
-  const fileExists = await doesFileExist(newFilePath);
+  const fileExists = await doesPathExist(newFilePath);
 
   if (fileExists) {
     throw new Error(ERROR_MESSAGE);
