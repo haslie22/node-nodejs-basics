@@ -10,9 +10,9 @@ const __dirname = dirname(__filename);
 
 const read = async () => {
   const filePath = join(__dirname, FOLDER_NAME, FILE_NAME);
-  const input = createReadStream(filePath, 'utf-8');
+  const readStream = createReadStream(filePath, 'utf-8');
 
-  input.pipe(process.stdout);
+  readStream.pipe(process.stdout);
 };
 
 await read();
