@@ -11,7 +11,7 @@ const FOLDER_NAME = 'files';
 const INPUT_FILE_NAME = 'fileToCompress.txt';
 const OUTPUT_FILE_NAME = 'archive.gz';
 
-const ERROR_MESSAGE_EXISTS = 'Compressed file already exists';
+const ERROR_MESSAGE = 'Compressed file already exists';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -23,7 +23,7 @@ const compress = async () => {
   const doesOutputFileExist = await doesPathExist(outputFilePath);
 
   if (doesOutputFileExist) {
-    throw new Error(ERROR_MESSAGE_EXISTS);
+    throw new Error(ERROR_MESSAGE);
   }
 
   const readStream = createReadStream(inputFilePath);
